@@ -13,6 +13,15 @@ $("html").keydown(function () {
   }
 });
 
+$("html").click(function () {
+  if (!gameStarted) {
+    gameStarted = true;
+    setTimeout(() => {
+      nextSequence();
+    }, 500);
+  }
+});
+
 $("div[type=button]").click(function () {
   if (gameStarted) {
     const userChosenColour = $(this).attr("id");
@@ -70,7 +79,7 @@ function checkAnswer(level) {
     $("#level-title").text(
       "Game Over, score: " +
         (gamePattern.length - 1) +
-        ". Press any key to start again."
+        ". Press any key or touch the screen to start again."
     );
 
     startOver();
