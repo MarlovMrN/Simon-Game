@@ -7,7 +7,9 @@ let level = 0;
 $("html").keydown(function () {
   if (!gameStarted) {
     gameStarted = true;
-    nextSequence();
+    setTimeout(() => {
+      nextSequence();
+    }, 500);
   }
 });
 
